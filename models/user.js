@@ -14,11 +14,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
+    fullName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     username: {
       type: DataTypes.STRING,
-      unique: true
+      unique: true,
+      allowNull: false,
     },
-    hasdPassword: DataTypes.STRING,
+    hashedPassword: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     freezeTableName: true,
